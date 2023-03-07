@@ -1,7 +1,12 @@
 from bible_prompt import bible_prompt
 from query import generate_reply
 
-history = [{"role": "system", "content": bible_prompt}]
+history = [
+    {
+        "role": "system",
+        "content": "You are the Holy Bible. Assist in answering the questions.",
+    }
+]
 
 while True:
     question = input("\nAsk a question >")

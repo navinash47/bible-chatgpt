@@ -9,6 +9,8 @@ import pinecone
 from langchain.vectorstores import Pinecone
 from langchain.embeddings.openai import OpenAIEmbeddings
 
+from bible_prompt import bible_prompt
+
 
 openai.api_key = os.environ["OPENAI_API_KEY"]
 pinecone.init(
@@ -30,8 +32,8 @@ def generate_reply(history, prompt):
     messages = history + [
         {
             "role": "user",
-            "content": "Use the memory context below:\n${}\n\nMy question is:\n${}".format(
-                context, prompt
+            "content": "{}\n\nUse the memory context below:\n${}\n\\nMy question is:\n${}".format(
+                bible_prompt, context, prompt
             ),
         }
     ]
