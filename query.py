@@ -32,7 +32,7 @@ def generate_reply(history, prompt):
     messages = history + [
         {
             "role": "user",
-            "content": "{}\n\nUse the memory context below:\n${}\n\\nMy question is:\n${}".format(
+            "content": "{}\n\nUse the memory context below:\n{}\n\nMy question is:\n{}".format(
                 bible_prompt, context, prompt
             ),
         }
