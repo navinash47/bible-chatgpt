@@ -15,7 +15,6 @@ source_dir_path = "bible"
 data = []
 
 print("Loading files...")
-
 for filename in os.listdir(source_dir_path):
     f_path = os.path.join(source_dir_path, filename)
     loader = TextLoader(f_path)
@@ -44,10 +43,9 @@ pinecone.init(
 index_name = "bible"
 
 print("Creating index...")
-pinecone.create_index(name=index_name, dimension=1536, pod_type="s1.x1")
+pinecone.create_index(name=index_name, dimension=1536, pod_type="p1.x1")
 
 print("Indexing vectors...")
-
 docsearch = Pinecone.from_documents(docs, embeddings, index_name=index_name)
 
 print("Indexing DONE!")
